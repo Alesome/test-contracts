@@ -1,10 +1,10 @@
 pragma solidity ^0.4.24;
 
-import "../../scripts/contracts/src/native/CrossChain.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract MyToken is CrossChain {
-    /* This creates an array with all balances */
-    mapping (address => uint256) public balanceOf;
+contract MyToken is ERC20 {
+    constructor() public ERC20("MyToken", "MTKN"){
+    _mint(msg.sender, 1000000000000000000000000);
 
     /* Initializes contract */
     function MyToken(uint256 _balance) public {
